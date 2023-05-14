@@ -1,0 +1,159 @@
+section {
+	margin-top : 1%;
+	width      : 50%;
+	float : left;
+}
+
+img {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	width : 45%;
+	float : left;
+}
+
+form {
+	width  : 50%;
+	margin : auto;
+}
+
+h1 {
+	font-size : 300%;
+	text-align : center;
+	margin-top : 4%;
+	color      : #5C5792;
+}
+
+
+/* Partie choix entre connexion et inscription */
+
+#choixCon, #choixIns {
+	font-size        : x-large;
+	font-weight      : bold;
+	color            : black;
+	margin           : 3% 5% 5% 5%;
+	float            : left;
+	text-align       : center;
+	padding-bottom   : 1%;
+	background-color : white;
+	border           : 0px;
+}
+
+#choixCon {
+	margin-left   : 25%;
+
+	color         : #5C5792;
+	border-bottom : 1px solid #5C5792;
+}
+
+#choixIns {
+	color        : #BDC3C7;
+	border-bottom: 1px solid #BDC3C7;
+}
+
+#choixCon:hover, #choixIns:hover { font-style : italic; }
+
+
+
+
+
+.divMailCon, .divMdpCon {
+	margin-bottom : 5%;
+}
+
+
+#mdpCon, #mailCon, #connexion { border-radius: 50px; }
+
+#mdpCon, #mailCon {
+	box-shadow: 3px 2px 2px rgba( 92,87,146, 0.5 );
+	padding: 3%;
+	width : 92%;
+	border : solid 1px #5C5792;
+}
+
+
+/* Bouton connexion */
+.divBtnCon {
+	float : right;
+	width : 50%;
+}
+
+#connexion {
+	color : white;
+	background-color: #5C5792;
+	padding: 5%;
+	width: 90%;
+}
+
+
+
+
+
+/* Partie inscription */
+#nomIns, #prenomIns, #dateNaissanceIns, #mailIns, #numIns, #mdpIns, #mdpConfirmIns, #inscription { border-radius: 50px; }
+
+
+.divNomPrenomIns, .divDateNaisIns, .divMailNumIns, .divMdpIns, .divFormulaireIns, .reglement {
+	margin-bottom : 5%;
+}
+
+
+#nomIns, #prenomIns, #dateNaissanceIns, #mailIns, #numIns, #mdpIns, #mdpConfirmIns {
+	box-shadow: 3px 2px 2px rgba( 92,87,146, 0.5 );
+	padding: 3%;
+	width : 92%;
+	border : solid 1px #5C5792;
+}
+
+#nomIns, #prenomIns, #mdpIns, #mdpConfirmIns { width        : 40%; }
+#nomIns, #mailIns,   #mdpIns                 { margin-right :  5%; }
+
+#mailIns { width : 55%; }
+#numIns  { width : 25%; }
+
+
+
+
+/* Bouton inscription */
+.divBtnIns {
+	float : right;
+	width : 50%;
+}
+
+#inscription {
+	color : white;
+	background-color: #5C5792;
+	padding: 5%;
+	width: 90%;
+}
+
+.divChoixIns {
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+
+
+/* Style boutons radios + checkbox */
+input[type = "radio"], input[type = "checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #BDC3C7;
+	outline: none;
+	transition: 0.2s all linear;
+}
+
+
+input[type = "radio"] { border-radius : 50%; }
+
+input[type = "radio"]:checked, input[type = "checkbox"]:checked {
+	border-color     : #5C5792;
+	background-color : #5C5792;
+}
+
+
+/* Style lien CGU */
+a:link    { color : black;   }
+a:visited { color : #5C5792; }

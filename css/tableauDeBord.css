@@ -1,0 +1,110 @@
+section {
+	float : left;
+}
+
+
+h2 {
+	font-size : 300%;
+	text-align : center;
+}
+
+
+ul {
+	list-style : none;
+}
+
+
+.informationsGenerales {
+	position : fixed;
+	bottom : 0;
+	top : 0;
+	left : 0;
+	width : 70%;
+	background-color: white;
+}
+
+.informationsGenerales h2 { color : #5C5792; margin-top : 4%; }
+
+.informationsPersonnelles {
+	position : fixed;
+	bottom : 0;
+	top : 0;
+	right : 0;
+
+	width: 30%;
+
+	color : white;
+
+	background : #5C5792;
+}
+
+
+
+/* Partie informations personnelles */
+.divBtnDeconnexion {
+	float : right;
+	width : 100%;
+}
+
+#deconnexion {
+	width : 70%;
+	border-radius: 50px;
+
+	margin : 0 15% 5% 15%;
+	padding: 5%;
+
+	position : absolute;
+	bottom : 0;
+
+	font-size: larger;
+	font-weight: bold;
+	color : #5C5792;
+
+	background-color: white;
+}
+
+
+/* Partie Informations Personnelles */
+.titre {
+	font-weight: bold;
+	font-size : x-large;
+
+	margin: 5% 0 2% 5%;
+}
+
+
+.info {
+	border : solid 1px white;
+
+	padding : 2% 6% 2% 6%;
+	margin-right: 10%;
+
+	border-radius: 50px;
+}
+
+
+article input[type = "button"] {
+	border-radius : 50%;
+	height        : 40px;
+	width         : 40px;
+
+	margin        : 20% 5% 0 5%;
+
+	font-weight   : bold;
+	color         : white;
+	background    : #5C5792;
+}
+
+article input[type = "button"]:active { background-color : rgba( 92,87,146, 0.8 ); }
+
+#gaucheVip, #gauchePremium, #gaucheBasique, #gaucheEtudiant {
+	position      : fixed;
+	top           : 5%;
+	left          : 5%;
+}
+
+#droiteVip, #droitePremium, #droiteBasique, #droiteEtudiant {
+	position      : fixed;
+	top           : 5%;
+	right         : 35%;
+}
