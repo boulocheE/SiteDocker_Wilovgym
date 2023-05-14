@@ -21,7 +21,6 @@ COPY ./README.md    /var/www/html/README.md
 COPY ./script.sh    /var/www/html/script.sh
 
 COPY ./compteClient /var/www/html/compteClient
-COPY ./css          /var/www/html/css
 COPY ./images       /var/www/html/images
 COPY ./java         /var/www/html/java
 COPY ./pageAccueil  /var/www/html/pageAccueil
