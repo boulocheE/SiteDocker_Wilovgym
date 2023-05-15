@@ -1,42 +1,22 @@
 <?php
-$addVerif = $_GET['mailCon'];
-$mdpVerif = $_GET['mdpCon' ];
+include 'page_accueil.php';
 
+$mail = $_POST['mailCon'];
+$mdp = $_POST['mdpCon' ];
 
-$myFileLecture = fopen("test.txt", "a+");
+$connexion = check_info_connexion($fichier_stockage, $mail, $mdp);
 
-$connexionOk = 1;
-
-while ( !feof($myFileLecture) || !$connexionOk === 3 )
+if( $connexion == 0 ) // connexion réussie
 {
-    $ligne = fgets($myFileLecture);
-    $cara = explode("\t", $ligne);
-
-    if($addVerif === $cara[3])
-    {
-        $connexionOk = 2;
-        if($mdpVerif === $cara[5])
-        {
-            //t'autorise à te connecter
-            $connexionOk = 3;
-        }
-    }
+    session_start();
+    $_SESSION['mail'] = $mail;
+    header("Location: ../../compteClient/compteClient.php"); // rediriger vers l'espace utilisateur
 }
-
-
-// if( $connexionOk == 1)
-// {
-//     echo "Addresse mail incorrect!";
-// }
-
-// if( $connexionOk  == 2)
-// {
-//     echo "Mot de passe impossible";
-// }
-
-// if ( $connexionOk == 3 )
-// {
-//     echo "Connecté";
-// }
+else 
+{
+    echo code_head(false);
+    if( $connexion == 1 ) echo code_accueil("", "", "", $mail, "", "", 1, false, true); // mot de passe incorrect
+    else echo code_accueil("", "", "", $mail, "", "", 1, true, false);                  // mail incorrect
+}
 
 ?>
