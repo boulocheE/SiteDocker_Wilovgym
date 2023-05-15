@@ -96,11 +96,10 @@
 
 				foreach ( $informations as $nom_info => $info )
 				{
-					echo '<h4>' . $nom_info . ' : ' . $info . '</h4>
+					echo '<h4>' . $nom_info . $info . '</h4>
 					';
 				}
 			?>
-			<h2> Paramètres </h2>
 
 			<div class = "divBtnDeconnexion">
 				<input type = "button" id = "deconnexion" name = "deconnexion" value = "Déconnexion" onclick = "btnDeconnexion();">

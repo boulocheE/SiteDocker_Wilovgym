@@ -1,4 +1,4 @@
-nom|prenom|dateNaissance|mail|tel|mdp|formule
+Nom|Prénom|Date de naissance|Mail|Numéro de téléphone|Mot de passe|Formule chosie
 montier|antoine|2003-11-14|antoine.montier@sfr.fr|07 82 13 98 12|hfiehvoejv|vip
 azertyuio|azertyuio|2004-11-14|b@gmail.com|07 82 13 92 18|azertyuiop|vip
 azertyuio|azertyuio|2004-11-14|azer@gmail.com|07 82 13 92 18|123456789|vip

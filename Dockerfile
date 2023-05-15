@@ -24,7 +24,6 @@ COPY ./compteClient /var/www/html/compteClient
 COPY ./images       /var/www/html/images
 COPY ./java         /var/www/html/java
 COPY ./pageAccueil  /var/www/html/pageAccueil
-COPY ./parametres   /var/www/html/parametres
 COPY ./test         /var/www/html/test
 
 # Give permissions to www-data
