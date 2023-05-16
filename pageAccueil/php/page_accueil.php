@@ -56,14 +56,20 @@ function code_accueil(string $nom = "", string $prenom = "", string $date = "", 
 
 			<form id = "formulaireConnexion" action = "./scriptConnexion.php" method = "post">';
 
-				if( $remplir_form == 1 || $remplir_form == 3 ) 	$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" value="'.$mail.'" required> </div>';
-				
-				else 											$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" required> </div>';
+				if( $remplir_form == 1 || $remplir_form == 3 )
+					$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" value="'.$mail.'" required> </div>';
+				else
+					$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" required> </div>';
 
-				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mail ) $res .= '<label for="mailCon"><p class="erreur">Adresse mail inconnue</p></label>';
+				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mail )
+					$res .= '<label for="mailCon"><p class="erreur">Adresse mail inconnue</p></label>';
+
 				$res .= '<div class = "divMdpCon" > <input type = "password" id = "mdpCon"   name  = "mdpCon"  placeholder = "mot de passe" required> </div>';
-				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mdp ) $res .= '<label for="mdpCon"><p class="erreur">Mot de passe Incorrect</p></label>';
-				$res .= '<div class = "divBtnCon" > <input type = "submit"   id = "connexion" value = "Se connecter"                                  > </div>
+
+				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mdp )
+					$res .= '<label for="mdpCon"><p class="erreur">Mot de passe Incorrect</p></label>';
+
+				$res .= '<div class = "divBtnCon" > <input type = "submit"   id = "connexion" value = "Se connecter"> </div>
 			</form>
 
 

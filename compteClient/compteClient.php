@@ -90,16 +90,17 @@
 
 		<section class = "informationsPersonnelles">
 			<h2> Informations Personnelles </h2>
-			<?php
+			<!-- <?php
 				include '../pageAccueil/php/page_accueil.php';
 				$informations = get_tableau_info('../pageAccueil/php/'.$fichier_stockage, $mail);
 
 				foreach ( $informations as $nom_info => $info )
 				{
-					echo '<h4>' . $nom_info . $info . '</h4>
-					';
+					echo '<h4>' . $nom_info . ' '. $info . '</h4>';
 				}
-			?>
+			?> -->
+
+			<p> Test </p>
 
 			<div class = "divBtnDeconnexion">
 				<input type = "button" id = "deconnexion" name = "deconnexion" value = "Déconnexion" onclick = "btnDeconnexion();">

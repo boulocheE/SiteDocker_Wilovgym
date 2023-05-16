@@ -31,9 +31,11 @@ ul {
 	top : 0;
 	right : 0;
 
+	padding : 10%;
+
 	width: 30%;
 
-	color : white;
+	color : black;
 
 	background : #5C5792;
 }
