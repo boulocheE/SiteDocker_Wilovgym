@@ -18,8 +18,6 @@ COPY ./index.html   /var/www/html/index.html
 
 COPY ./README.md    /var/www/html/README.md
 
-COPY ./script.sh    /var/www/html/script.sh
-
 COPY ./compteClient /var/www/html/compteClient
 COPY ./images       /var/www/html/images
 COPY ./pageAccueil  /var/www/html/pageAccueil
@@ -33,5 +31,4 @@ EXPOSE 3307
 EXPOSE 80
 
 # Run startup script
-RUN chmod +x /var/www/html/script.sh
-CMD /var/www/html/script.sh
+CMD bash -c "service mariadb start && echo \"<?php phpinfo(); ?>\" > /var/www/html/info.php && /usr/sbin/apache2ctl -DFOREGROUND"
