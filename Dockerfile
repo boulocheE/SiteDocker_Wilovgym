@@ -22,9 +22,7 @@ COPY ./script.sh    /var/www/html/script.sh
 
 COPY ./compteClient /var/www/html/compteClient
 COPY ./images       /var/www/html/images
-COPY ./java         /var/www/html/java
 COPY ./pageAccueil  /var/www/html/pageAccueil
-COPY ./test         /var/www/html/test
 
 # Give permissions to www-data
 RUN chown -R www-data:www-data /var/www/html

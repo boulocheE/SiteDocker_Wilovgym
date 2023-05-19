@@ -164,3 +164,20 @@ a:visited { color : #5C5792; }
 	color : #FF0000;
 	font-weight: bold;
 }
+
+/* Formules */
+
+.info_formule {
+	border: black solid 1px;
+}
+
+.formule_selectionee {
+	border: black solid 1px;
+	background-color: #5C5792;
+}
+
+.titre_formule {}
+
+.info_formule {}
+
+.val_formule {}

@@ -18,23 +18,11 @@ function code_head(bool $page_inscription = false) : string
 		<link   rel = "stylesheet" href = "../index.css" media = "all" type = "text/css">
 		<script src = "../script.js"></script>
 		<script>';
-		if( $page_inscription )
-		{
-			$res .= '
-			window.onload = function() {
-				cliqueBtnChoixIns();
-			};';
-		}
-		else
-		{
-			$res .= '
-			window.onload = function() {
-				cliqueBtnChoixCon();
-			};';
-		}
+		if( $page_inscription ) $res .= 'window.onload = function() {cliqueBtnChoixIns();};';
+		else $res .= 'window.onload = function() {cliqueBtnChoixCon();};';
+		
 		$res .= '</script>
 	</head>';
-
 
 	return $res;
 }
@@ -56,20 +44,14 @@ function code_accueil(string $nom = "", string $prenom = "", string $date = "", 
 
 			<form id = "formulaireConnexion" action = "./scriptConnexion.php" method = "post">';
 
-				if( $remplir_form == 1 || $remplir_form == 3 )
-					$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" value="'.$mail.'" required> </div>';
-				else
-					$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" required> </div>';
+				if( $remplir_form == 1 || $remplir_form == 3 ) 	$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" value="'.$mail.'" required> </div>';
+				
+				else 											$res .= '<div class = "divMailCon"> <input type = "text"     id = "mailCon"  name  = "mailCon" placeholder = "adresse mail" required> </div>';
 
-				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mail )
-					$res .= '<label for="mailCon"><p class="erreur">Adresse mail inconnue</p></label>';
-
+				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mail ) $res .= '<label for="mailCon"><p class="erreur">Adresse mail inconnue</p></label>';
 				$res .= '<div class = "divMdpCon" > <input type = "password" id = "mdpCon"   name  = "mdpCon"  placeholder = "mot de passe" required> </div>';
-
-				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mdp )
-					$res .= '<label for="mdpCon"><p class="erreur">Mot de passe Incorrect</p></label>';
-
-				$res .= '<div class = "divBtnCon" > <input type = "submit"   id = "connexion" value = "Se connecter"> </div>
+				if( ( $remplir_form == 1 || $remplir_form == 3 ) && $err_mdp ) $res .= '<label for="mdpCon"><p class="erreur">Mot de passe Incorrect</p></label>';
+				$res .= '<div class = "divBtnCon" > <input type = "submit"   id = "connexion" value = "Se connecter"                                  > </div>
 			</form>
 
 
@@ -97,7 +79,7 @@ function code_accueil(string $nom = "", string $prenom = "", string $date = "", 
 					pattern = "0[0-9]{1}[ -.][0-9]{2}[ -.][0-9]{2}[ -.][0-9]{2}[ -.][0-9]{2}" placeholder = "+33X XX XX XX XX" ';
 					if( $remplir_form == 2 || $remplir_form == 3 && trim($tel) != '' ) $res .= ' value = "'.$tel.'" ';
 					$res .= '>';
-					if( $remplir_form >= 2 && $err_mail ) $res .= '<label for = "mailIns" class="erreur"> Il existe déjà un compte associé à cette adresse mail </label>';
+					if( $remplir_form >= 2 && $err_mail ) $res .= '<label for = "mailIns"><p class="erreur">Il existe déjà un compte associé à cette adresse mail</p></label>';
 				$res .= '</div>
 
 				<div class = "divMdpIns">
@@ -152,38 +134,38 @@ function code_accueil(string $nom = "", string $prenom = "", string $date = "", 
 
 function check_mail(string $fichier, string $mail) : bool
 {
-	$fLiseur = fopen($fichier, 'r');
+    $fLiseur = fopen($fichier, 'r');
 
-	if( $fLiseur == false ) return true; // le chichier n'existe pas donc pas d'adresse e-mail a verifier
-	
-	fgets($fLiseur); // passer 1 ligne
+    if( $fLiseur == false ) return true; // le chichier n'existe pas donc pas d'adresse e-mail a verifier
+    
+    fgets($fLiseur); // passer 1 ligne
 
-	while( !feof($fLiseur) )
-	{
-		$ligne = fgets($fLiseur);
-		$info = explode("|", $ligne); // explode avec \t ne fonctionnait pas TODO : changer le separateur 
-		if( isset($info[3]) && $info[3] == $mail )
-		{
-		fclose($fLiseur);
-		return false; // le mail est déjà contenu dans le fichier
-		}
-	}
+    while( !feof($fLiseur) )
+    {
+        $ligne = fgets($fLiseur);
+        $info = explode("|", $ligne); // explode avec \t ne fonctionnait pas TODO : changer le separateur 
+        if( isset($info[3]) && $info[3] == $mail )
+        {
+        fclose($fLiseur);
+        return false; // le mail est déjà contenu dans le fichier
+        }
+    }
 
-	fclose($fLiseur);
-	return true; // pas de mail dans le fichier
+    fclose($fLiseur);
+    return true; // pas de mail dans le fichier
 }
 
 function enregistrer_donnees (string $fichier, string $nom, string $prenom, string $dateNaissance, string $mail, string $tel, string $mdp, string $formule)
 {
-	$fEcriture = fopen($fichier, 'a');
-	if( $fEcriture == false ) 
-	{
-		echo '<h2>Erreur d\'ouverture du fichier</h2>';
-		return;
-	}
+    $fEcriture = fopen($fichier, 'a');
+    if( $fEcriture == false ) 
+    {
+        echo '<h2>Erreur d\'ouverture du fichier</h2>';
+        return;
+    }
 
-	fputs($fEcriture, $nom.'|'.$prenom.'|'.$dateNaissance.'|'.$mail.'|'.$tel.'|'.$mdp.'|'.$formule."\n");
-	fclose($fEcriture);
+    fputs($fEcriture, $nom.'|'.$prenom.'|'.$dateNaissance.'|'.$mail.'|'.$tel.'|'.$mdp.'|'.$formule."\n");
+    fclose($fEcriture);
 }
 
 // return 0 si le mot de passe et le mail sont corrects // '1' si le mot de passe ne correspond pas au mail // '2' si pas de mail enregistré // '-1' si erreur 
@@ -234,7 +216,7 @@ function get_tableau_info(string $fichier, string $mail) : array
 			$i = 0;
 			foreach( $info as $information_unique )
 			{
-				$nom_colonne = $info_1[$i];
+				$nom_colonne = trim($info_1[$i]);
 				$res[$nom_colonne] = $information_unique;
 				$i++;
 			}
