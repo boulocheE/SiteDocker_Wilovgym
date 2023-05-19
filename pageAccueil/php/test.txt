@@ -1,5 +1,0 @@
-nom|prenom|dateNaissance|mail|tel|mdp|formule
-montier|antoine|2003-11-14|antoine.montier@sfr.fr|07 82 13 98 12|hfiehvoejv|vip
-azertyuio|azertyuio|2004-11-14|b@gmail.com|07 82 13 92 18|azertyuiop|vip
-azertyuio|azertyuio|2004-11-14|azer@gmail.com|07 82 13 92 18|123456789|vip
-a|a|2022-01-11|a@gmail.com|06 47 75 75 88|m|basic

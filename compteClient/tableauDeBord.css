@@ -137,6 +137,7 @@ article#vip, article#premium, article#basic, article#etudiant {
 
 
 article.formuleChoisie {
-	background-color: rgba(92,87,146, 0.4);
 	border-radius: 10px;
+
+	background-color: rgba(92,87,146, 0.4);
 }

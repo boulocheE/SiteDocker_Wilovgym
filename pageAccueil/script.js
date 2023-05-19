@@ -13,10 +13,6 @@ function cliqueBtnChoixCon ()
 }
 
 
-// let formulaire = document.getElementById( "formulaireInscription" );
-// 				formulaire.style.display = 'none';
-
-
 function cliqueBtnChoixIns()
 {
 	// Modifier la couleur de connexion et inscription
@@ -44,7 +40,7 @@ function modifierCoulConIns ( choixViolet, choixGris )
 }
 
 
-function maFonctionJS ()
+function ouvrirCGU()
 {
-	window.open( "cgu.html", "CGU", "width=300,height=400" )
+	window.open( "../cgu.html", "CGU", "width=300,height=400" )
 }

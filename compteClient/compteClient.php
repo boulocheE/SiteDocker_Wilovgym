@@ -12,95 +12,153 @@
 		<script src = "script.js"></script>
 	</head>
 
+	<?php
+		include '../pageAccueil/php/page_accueil.php';
+
+		$mail = 'pas_de_mail';
+		session_start();
+		$session_valide = isset($_SESSION['mail']);
+
+		if( $session_valide )
+		{
+			$mail = $_SESSION['mail'];
+			$informations = get_tableau_info('../pageAccueil/php/'.$fichier_stockage, $mail);
+			$formule_choisie = trim($informations['formule']);
+		}
+		else
+			// la session a expiré
+			header("Location: ../pageAccueil/php/scriptConnexion.php"); // rediriger vers l'espace utilisateur
+	?>
 
 
 	<body>
-		<?php
-			include '../pageAccueil/php/page_accueil.php';
-
-			$mail = 'pas_de_mail';
-
-			session_start();
-
-			$session_valide = isset($_SESSION['mail']);
-			if( $session_valide )
-			{
-				// session valide
-				$mail = $_SESSION['mail'];
-				$informations = get_tableau_info('../pageAccueil/php/'.$fichier_stockage, $mail);
-				// tableau associatif respectant cette règle : nom_formule => 'prix€durée'
-				$formules = [ 
-					'vip' => '50€2',
-					'premium' => '40€3',
-					'basic' => '20€2',
-					'etudiant' => '15€1'
-				];
-			}
-		?>
 		<section class = "informationsGenerales" >
 			<h2> Formules </h2>
+			<?php
+				if($formule_choisie == 'vip')
+					echo '<article id = "vip" class="formuleChoisie">';
+				else
+					echo '<article id = "vip">';
+			?>
+				<div class = "info_formule">
+					<h3> Formule : VIP </h3>
+					<ul>
+						<li> <b> Prix : </b> 359,99€ </li>
+						<li> <b> Durée : </b> 12 mois avec engagement </li>
+					</ul>
+						
+				<div class = "infoAcces">
+					<ul>
+						<li> Accès illimité aux équipements de musculation et de cardio </li>
+						<li> Accès illimité aux cours collectifs </li>
+						<li> Coaching personnalisé inclus </li>
+						<li> Accès à des événements exclusifs </li>
+						<li> Accès à des services supplémentaires </li>
+						<li> Accès à des horaires d'ouverture étendus </li>
+						<li> Accès à des équipements de pointe </li>
+						<li> Accès à des vestiaires de luxe </li>
+				</div>
+
+			</article>
+
 
 			<?php
-			if($session_valide)
-			{
-				foreach ($formules as $nom_formule => $info_formule)
-				{
-					$infos = explode('€', $info_formule);
-					$prix_formule = $infos[0];
-						$duree_formule = $infos[1];
-					
-					// vérifier que les formules sont bien renseignées
-					if( !isset($prix_formule) || !isset($duree_formule) ) echo '<p class="erreur">Erreur dans la récuperation des informations de formules</p>';
-
-					echo '
-					<article id = "'.$nom_formule.'">';
-
-					if ( $informations['formule'] == $nom_formule )
-							echo '<div id="formule_selectionee">';
-						else
-							echo '<div class = "info_formule">';
-
-						echo '<ul>
-								<li class = "titre_formule"><b>'.$nom_formule.'</b></li>
-								<li class = "info_formule">Prix  :</li>
-								<li class = "val_formule" >'.$prix_formule.'€</li>
-								<li class = "info_formule">Durée :</li>
-								<li class = "val_formule" >'.$duree_formule.'h</li>
-							</ul>
-						</div>
-						<div class = "infoAcces"></div>
-						<div class = "planning"></div>
-					</article>';
-				}
-			}else{
-				// la session a expiré
-				echo '<h3>Session Expirée, Cliquer sur Déconnexion</h3>';
-				header("Location: ../pageAccueil/php/scriptConnexion.php"); // rediriger vers l'espace utilisateur
-			}
+				if($formule_choisie == 'premium')
+					echo '<article id = "premium" class="formuleChoisie">';
+				else
+					echo '<article id = "premium">';
 			?>
+				<div class = "info_formule">
+					<h3> Formule : Premium </h3>
+					<ul>
+						<li> <b> Prix : </b> 359,99€ </li>
+						<li> <b> Durée : </b> 12 mois avec engagement </li>
+					</ul>
 
-		</section>	
+				<div class = "infoAcces">
+					<ul>
+						<li> Accès illimité aux équipements de musculation et de cardio </li>
+						<li> Accès illimité aux cours collectifs </li>
+						<li> Coaching personnalisé inclus </li>
+						<li> Accès à des événements exclusifs </li>
+						<li> Accès à des services supplémentaires </li>
+						<li> Accès à des horaires d'ouverture étendus </li>
+						<li> Accès à des équipements de pointe </li>
+						<li> Accès à des vestiaires de luxe </li>
+					</ul>
+				</div>
+
+			</article>
+
+
+			<?php
+				if($formule_choisie == 'basic')
+					echo '<article id = "basic" class="formuleChoisie">';
+				else
+					echo '<article id = "basic">';
+			?>
+				<div class = "info_formule">
+					<h3> Formule : Basic </h3>
+
+					<ul>
+						<li> <b> Prix : </b> 239,99€ </li>
+						<li> <b> Durée : </b> 12 mois avec engagement </li>
+					</ul>
+
+				<div class = "infoAcces">
+					<ul>
+						<li> Accès illimité aux équipements de musculation et de cardio </li>
+						<li> Accès illimité aux cours collectifs </li>
+						<li> Coaching non inclus </li>
+						<li> Accès à des vestiaires communs </li>
+					</ul>
+				</div>
+
+			</article>
+
+
+			<?php
+				if($formule_choisie == 'etudiant')
+					echo '<article id = "etudiant" class="formuleChoisie">';
+				else
+					echo '<article id = "etudiant">';
+			?>
+				<div class = "info_formule">
+					<h3> Formule : Etudiant </h3>
+
+					<ul>
+						<li> <b> Prix : </b> 189,99€ </li>
+						<li> <b> Durée : </b> 12 mois avec engagement </li>
+					</ul>
+
+				<div class = "infoAcces">
+					<ul>
+						<li> Accès illimité aux équipements de musculation et de cardio </li>
+						<li> Accès illimité aux cours collectifs </li>
+						<li> Coaching non inclus </li>
+						<li> Accès à des vestiaires communs </li>
+					</ul>
+				</div>
+
+			</article>
+		</section>
 
 		<section class = "informationsPersonnelles">
-			<h2> Informations Personnelles </h2>
-			<?php
-				if( $session_valide )
-				{
-					foreach ( $informations as $nom_info => $info )
-					{
-						if( $nom_info == 'mdp' )
-						{
-							echo '<a href="#"> modifier le mot de passe</a>'; 
-						}
-						else
-						{
-							echo '<h4>' . $nom_info . ' : ' . $info . '</h4>
-							';
-						}
-					}
-				}
-			?>
-
+			<h2> Paramètres </h2>
+			<ul>
+				<?php
+				echo "<li class = 'typeInfo' > Nom </li>
+				<li class = 'infoRenseigne' > ".trim($informations['nom']) ."</li>
+				<li class = 'typeInfo' > Prenom </li>
+				<li class = 'infoRenseigne' >". trim($informations['prenom']) ."</li>
+				<li class = 'typeInfo' > Date de Naissance </li>
+				<li class = 'infoRenseigne' >". trim($informations['dateNaissance']) ."</li>
+				<li class = 'typeInfo' > Mail </li>
+				<li class = 'infoRenseigne' >". trim($informations['mail']) ."</li>
+				<li class = 'typeInfo' > Tel </li>
+				<li class = 'infoRenseigne' > ".trim($informations['tel']) ."</li>";
+				?>
+			</ul>
 			<div class = "divBtnDeconnexion">
 				<input type = "button" id = "deconnexion" name = "deconnexion" value = "Déconnexion" onclick = "btnDeconnexion();">
 			</div>
