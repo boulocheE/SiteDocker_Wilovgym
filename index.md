@@ -40,5 +40,3 @@ Une fois inscris, vous serez redirigé vers la page de connexion, il vous suffit
 
 Nous avons remarqué avec d'autres équipes que docker ne trouvais pas les script.sh quand nous ne sommes pas propriétaire du projet.
 Pour remédier à ce problème, nous avos supprimé ce fichier et mis directement ses instructions dans le dockerfile.
-
-
